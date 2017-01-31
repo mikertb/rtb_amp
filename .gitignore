@@ -1,0 +1,11 @@
+# Mac OS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Node Files
+node_modules
