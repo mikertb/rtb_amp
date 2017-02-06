@@ -45,7 +45,18 @@ function write_entries(err,rows,settings){
     }
     fs.writeFileSync(settings.output_file,html);
 }
-gulp.task('write_standard_ads',function(){
+gulp.task('write_standard_ads_all',function(){
+    var sql = "SELECT * FROM `inventory_all` WHERE `inventory_type` LIKE '%standard%' AND `include`=1 ORDER BY `total_imps` DESC";
+    var con = mysql.createConnection($opt_mysql);
+    var settings = {
+        image_folder : 'img/menu/inventory/',
+        output_file : 'src/partials/html/menu_inventory_standard_all.html'
+    }
+    con.connect(function(err){if(err){console.log('Error connecting to Db');return;};console.log('Connection established');});
+    con.query(sql,function(err,rows){write_entries(err,rows,settings)});
+    con.end(function(err){console.log("DB connection end.");});
+});
+gulp.task('write_standard_ads_menu',function(){
     var sql = "SELECT * FROM `inventory_all` WHERE `inventory_type` LIKE '%standard%' AND `include`=1 ORDER BY `total_imps` DESC LIMIT 20";
     var con = mysql.createConnection($opt_mysql);
     var settings = {
@@ -56,7 +67,7 @@ gulp.task('write_standard_ads',function(){
     con.query(sql,function(err,rows){write_entries(err,rows,settings)});
     con.end(function(err){console.log("DB connection end.");});
 });
-gulp.task('write_native_ads',function(){
+gulp.task('write_native_ads_menu',function(){
     var sql = "SELECT * FROM `inventory_all` WHERE `inventory_type` LIKE '%native%' AND `include`=1 ORDER BY `total_imps` DESC";
     var con = mysql.createConnection($opt_mysql);
     var settings = {
@@ -67,7 +78,7 @@ gulp.task('write_native_ads',function(){
     con.query(sql,function(err,rows){write_entries(err,rows,settings)});
     con.end(function(err){console.log("DB connection end.");});
 });
-gulp.task('write_video_ads',function(){
+gulp.task('write_video_ads_menu',function(){
     var settings = {
         image_folder : 'img/menu/others/',
         output_file : 'src/partials/html/menu_inventory_video.html'
@@ -103,7 +114,7 @@ gulp.task('write_video_ads',function(){
     }
     fs.writeFileSync(settings.output_file,html);
 });
-gulp.task('write_audio_ads',function(){
+gulp.task('write_audio_ads_menu',function(){
     var settings = {
         image_folder : 'img/menu/others/',
         output_file : 'src/partials/html/menu_inventory_audio.html'
@@ -174,4 +185,4 @@ gulp.task('watch',function(){
     gulp.watch('./src/partials/html/*.html',['apply_mustache_partials']);
 });
 // Default task.
-gulp.task('default',['scss-build','mustache-build']);
+gulp.task('default',['']);

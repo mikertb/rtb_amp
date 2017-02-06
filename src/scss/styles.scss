@@ -31,10 +31,31 @@
 
 * {
     color: white;
-    font-family: Raleway, Arial, sans-serif;
+    font-family: 'Raleway', Arial, sans-serif;
+    box-sizing: border-box;
 }
 html {background-color: #566473;}
+body > h1,
+body > h2,
+body > h3,
+body > h4,
+body > p,
+body > div.contain {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+body > div.contain {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+body > ul {
+    padding-right: 10px;
+}
+
 h1,h2,h3,h4 {font-weight: 500;}
+h1 small,h2 small,h3 small,h4 small {
+    font-size: 0.5em;
+}
 a {
     color: #4cc0e5;
     text-decoration: none;
@@ -44,11 +65,24 @@ figcaption {
     margin-top: 5px;
     font-style: italic;
 }
-
 section.footer {
     text-align: center;
     padding: 15px;
     background-color: rgba(0,0,0,0.2);
+}
+table {
+    font-size: 15px;
+    border-collapse: collapse;
+}
+table th,
+table td {
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+table.bordered th,
+table.bordered td {
+    border: 1px solid #fff;
 }
 
 /* AMP Elements */
