@@ -46,7 +46,7 @@ function write_entries(err,rows,settings){
     fs.writeFileSync(settings.output_file,html);
 }
 gulp.task('write_standard_ads',function(){
-    var sql = "SELECT * FROM `inventory_all` WHERE `inventory_type` LIKE '%standard%' AND `include`=1 ORDER BY `total_imps` DESC";
+    var sql = "SELECT * FROM `inventory_all` WHERE `inventory_type` LIKE '%standard%' AND `include`=1 ORDER BY `total_imps` DESC LIMIT 20";
     var con = mysql.createConnection($opt_mysql);
     var settings = {
         image_folder : 'img/menu/inventory/',
