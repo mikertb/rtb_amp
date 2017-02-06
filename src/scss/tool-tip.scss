@@ -1,8 +1,8 @@
 .tooltip {
     position: absolute;
     z-index: 1;
-    width: 2.2em;
-    height: 2.2em;
+    width: 2em;
+    height: 2em;
     cursor: pointer;
     opacity: 1;
 }
@@ -10,11 +10,11 @@
 /* Trigger item */
 
 .tooltip-item {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     left: 50%;
     top: 50%;
-    margin: -15px 0 0 -15px;
+    margin: -10px 0 0 -10px;
     position: absolute;
     border-radius: 50%;
     border: 2px solid #FDF103;
@@ -22,8 +22,16 @@
 }
 
 @keyframes pulse {
-    from { transform: scale3d(0.5,0.5,1); transform: scale3d(0.5,0.5,1); }
-    to { transform: scale3d(1,1,1); transform: scale3d(1,1,1); }
+    from { transform: scale3d(0.5,0.5,1); }
+    to { transform: scale3d(1,1,1); }
+}
+@keyframes swingLeft {
+    0%,40% { opacity: 0; transform: translate3d(0,50%,0) rotate3d(1,1,1,30deg); }
+    46%,100% { opacity: 1; transform: translate3d(0,50%,0) rotate3d(0,0,0,0); }
+}
+@keyframes swingRight {
+    0%,45% { opacity: 0; transform: translate3d(0,50%,0) rotate3d(1,1,1,-30deg); }
+    50%,100% { opacity: 1; transform: translate3d(0,50%,0) rotate3d(0,0,0,0); }
 }
 
 .tooltip:hover .tooltip-item {
@@ -31,23 +39,33 @@
 }
 
 .tooltip:first-child {
-    top: 20%;
-    left: 30%;
+    top: 12%;
+    left: 35%;
+    animation-delay: 1.5s;
 }
 
 .tooltip:nth-child(2) {
     top: 50%;
-    left: 18%;
+    left: 10%;
+}
+.tooltip:nth-child(2) .tooltip-content {
+    animation-delay: 4.5s;
 }
 
 .tooltip:nth-child(3) {
-    top: 45%;
-    left: 60%;
+    top: 33%;
+    left: 75%;
+}
+.tooltip:nth-child(3) .tooltip-content {
+    animation-delay: 7s;
 }
 
 .tooltip:nth-child(4) {
     top: 70%;
-    left: 80%;
+    left: 65%;
+}
+.tooltip:nth-child(4) .tooltip-content {
+    animation-delay: 12s;
 }
 
 /* Tooltip */
@@ -56,12 +74,12 @@
     position: absolute;
     background: #e35583;
     z-index: 9999;
-    width: 200px;
+    width: 150px;
     bottom: 50%;
     margin-bottom: -1em;
-    padding: 15px;
+    padding: 10px;
     border-radius: 20px;
-    font-size: 1.4em;
+    font-size: 0.8em;
     text-align: center;
     color: #fff;
     opacity: 0;
@@ -69,25 +87,18 @@
     pointer-events: none;
     font-family: 'Gochi Hand', cursive;
     font-smoothing: antialiased;
-    transition: opacity 0.3s, transform 0.3s;
 }
 
 .tooltip-west .tooltip-content {
-    left: 4em;
+    left: 3.5em;
     transform-origin: -2em 50%;
-    transform: translate3d(0,50%,0) rotate3d(1,1,1,30deg);
+    animation: swingLeft 4s linear infinite alternate;
 }
 
 .tooltip-east .tooltip-content {
-    right: 4em;
+    right: 3.5em;
     transform-origin: calc(100% + 2em) 50%;
-    transform: translate3d(0,50%,0) rotate3d(1,1,1,-30deg);
-}
-
-.tooltip:hover .tooltip-content {
-    opacity: 1;
-    transform: translate3d(0,50%,0) rotate3d(0,0,0,0);
-    pointer-events: auto;
+    animation: swingLeft 4s linear infinite alternate;
 }
 
 /* Gap "bridge" and arrow */

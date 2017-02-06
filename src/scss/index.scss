@@ -4,9 +4,41 @@
     box-sizing: border-box;
 }
 
-.intro-screen {
-    height: 100%;
+#splash_screen {
+    height: 550px;
     background: url(img/map.jpg) no-repeat center center;
     background-size: cover;
     overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+#sellers {
+    text-align: center;
+    padding: 15px;
+}
+#sellers a.seller {
+    width: 100%;
+    max-width: 350px;
+    display: inline-block;
+    margin: 8px 8px;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%);
+    border-radius: 4px;
+}
+#sellers a .title {
+    color: rgba(0,0,0,0.8);
+    font-size: 18px;
+    text-align: left;
+    text-shadow: rgb(255, 255, 255) 1px 1px 2px;
+}
+#sellers a amp-img {
+    background-color: transparent;
+    margin-bottom: 5px;
+}
+#sellers h3 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+@media (max-width: 579px) {
+    #sellers a.seller {margin: 8px 0px;}
 }

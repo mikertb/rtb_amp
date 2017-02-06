@@ -34,6 +34,7 @@
     font-family: Raleway, Arial, sans-serif;
 }
 html {background-color: #566473;}
+h1,h2,h3,h4 {font-weight: 500;}
 a {
     color: #4cc0e5;
     text-decoration: none;
@@ -42,6 +43,12 @@ figcaption {
     font-size: 13px;
     margin-top: 5px;
     font-style: italic;
+}
+
+section.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0,0,0,0.2);
 }
 
 /* AMP Elements */
