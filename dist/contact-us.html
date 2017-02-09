@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Send Us a Message</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700">
+    <link rel="stylesheet" type="text/css" href="css/contact.min.css" />
+</head>
+
+<body>
+    <div id="contact_container" class="container">
+
+        <div class="fs-form-wrap" id="fs-form-wrap">
+            <div class="fs-title">
+                <h1>Contact Us</h1>
+            </div>
+            <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+                <ol class="fs-fields">
+                    <li>
+                        <label class="fs-field-label fs-anim-upper" for="q1">What's your name?</label>
+                        <input class="fs-anim-lower" id="q1" name="name" type="text" placeholder="your name" required/>
+                    </li>
+                    <li>
+                        <label class="fs-field-label fs-anim-upper" for="q2" data-info="We won't send you spam, we promise...">What's your email address?&nbsp;</label>
+                        <input class="fs-anim-lower" id="q2" name="email" type="email" placeholder="email@domain.us" required/>
+                    </li>
+                    <li data-input-trigger>
+                        <label class="fs-field-label fs-anim-upper" for="q3" data-info="This will help us understand what kind of service you need">Are you looking to buy:?&nbsp;</label>
+                        <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
+                            <span title="Click to select or deselect.">
+                                <span class="icon">
+                                    <i class="fa fa-film" aria-hidden="true"></i>
+                                </span>
+                                <input id="q1b" name="type[]" type="checkbox" value="in-banner-video"/>
+                                <label for="q1b" class="for-checkbox">In-banner Video</label>
+                            </span>
+                            <span title="Click to select or deselect.">
+                                <span class="icon">
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                </span>
+                                <input id="q2b" name="type[]" type="checkbox" value="mobile-app-traffic"/>
+                                <label for="q2b" class="for-checkbox">Mobile App Traffic</label>
+                            </span>
+                            <span title="Click to select or deselect.">
+                                <span class="icon">
+                                    <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                                </span>
+                                <input id="q3b" name="type[]" type="checkbox" value="web"/>
+                                <label for="q3b" class="for-checkbox">Web</label>
+                            </span>
+                            <span title="Click to select or deselect.">
+                                <span class="icon">
+                                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                                </span>
+                                <input id="q4b" name="type[]" type="checkbox" value="native"/>
+                                <label for="q4b" class="for-checkbox">Native</label>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="fs-field-label fs-anim-upper" for="q4">How can we help you?</label>
+                        <textarea class="fs-anim-lower" id="q4" name="message" placeholder="I would like to scale..." required></textarea>
+                    </li>
+                </ol><!-- /fs-fields -->
+                <button class="fs-submit" type="submit">Send</button>
+            </form><!-- /fs-form -->
+        </div><!-- /fs-form-wrap -->
+
+    </div><!-- /container -->
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/FForm.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        (function() {
+            var formWrap = document.getElementById('fs-form-wrap');
+            new FForm(formWrap, {
+                onReview: function() {
+                    classie.add(document.body, 'overview');
+                }
+            });
+        })();
+        (function($) {
+            $("#myform").submit(function(e) {
+                e.preventDefault();
+                var data = $(this).serialize();
+                $("#contact_container").css("opacity", "0");
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://sandbox.lat.com.es/index.php/contact',
+                    data: data,
+                    success: function(response) {
+                        var reply = response;
+                        if (reply.status == "success") {
+                            top.location = "thank-you.html";
+                        }
+                    }
+                });
+            });
+        }(jQuery))
+    </script>
+</body>
+
+</html>
