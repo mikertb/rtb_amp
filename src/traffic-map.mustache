@@ -27,8 +27,7 @@
     <script src="js/jvectormap-2.0.3/jvectormap.min.js"></script>
     <script src="js/jvectormap-2.0.3/world-mill-mod.js"></script>
     <script>
-        ;
-        (function($) {
+        ;(function($) {
             var main_div = $('#main');
             var scrn_btn = $('#world_map .scr-toggle');
             var data_url = "http://sandbox.lat.com.es/index.php/stat/json?seller=map_all";
@@ -44,7 +43,7 @@
                 } else if (el.msRequestFullscreen) {
                     el.msRequestFullscreen();
                 }
-            }
+            };
 
             function exitFullScreen() {
                 if (document.exitFullscreen) {
@@ -56,7 +55,7 @@
                 } else if (document.msExitFullscreen) {
                     document.msExitFullscreen();
                 }
-            }
+            };
 
             function toggleFS(e) {
                 if (main_div.hasClass('fullscreened')) {
@@ -68,7 +67,7 @@
                     $(this).addClass("restore").removeClass("max").attr("title", "Exit fullscreen");
                     goFullScreen('world_map');
                 }
-            }
+            };
             scrn_btn.click(toggleFS);
             $.getJSON(data_url, function(data) {
                 $('#world_map').vectorMap({
