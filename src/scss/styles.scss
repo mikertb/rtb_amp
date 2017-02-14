@@ -18,10 +18,15 @@
     text-shadow: rgba(200,200,200,0.4) 1px 1px 1px;
     text-align: center;
     line-height: 1;
+    border-style: none;
+    outline: none;
 }
 .btn-grey {background: $button-grey;}
 .btn-green {background: $button-green;}
 .btn-yellow {text-shadow:1px 1px 1px rgba(255,255,255,0.9);background: $button-yellow;}
+.btn-white {background: $button-white;}
+.btn:active {box-shadow: none;}
+.btn-white:active {background: #c5c5c5;}
 .float-right {float: right;}
 .none {display: none;}
 .text-center {text-align: center;}

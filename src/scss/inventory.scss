@@ -1,0 +1,108 @@
+h2 span.title {
+    font-size: 14px;
+    font-family: Impact,Charcoal,sans-serif;
+    vertical-align: middle;
+}
+.pagination-block {
+    text-align: center;
+}
+.pagination {
+    display: inline-block;
+    margin: auto;
+    font-size: 14px !important;
+}
+.pagination button,
+.pagination select {
+    height: 30px;
+    border: none;
+    color: #555;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+    vertical-align: middle;
+    outline: none;
+    z-index: 99;
+}
+.pagination option,
+.pagination button * {
+    color: #555;
+}
+.pagination select[disabled],
+.pagination button[disabled] * {
+    color: #999;
+}
+.pagination option {
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.data-block table {
+    width: 100%;
+}
+.data-block table th:first-child {
+    width: 55%;
+}
+.data-block table th .sort-direction {
+    float: right;
+    opacity: 0;
+}
+.data-block table th.active .sort-direction {
+    opacity: 1;
+}
+.data-block table th.asc .sort-direction .fa:before {
+    content: "\f077";
+}
+.data-block table th.des .sort-direction .fa:before {
+    content: "\f078";
+}
+#search_icon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    top: 60px; right: 5px;
+    background-color: rgba(0,0,0,0.5);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    display: block;
+}
+#search_icon:after {
+    width: 6px;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -6px;
+    background-color: rgba(0,0,0,0.5);
+    display: inline-block;
+}
+#search_modal ul {
+    list-style-type: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 30px;
+}
+#search_modal .overlay-content,
+#country_modal .overlay-content {min-width: 265px;}
+#search_modal .filter-title {
+    margin-bottom: 8px;
+}
+#country_modal ul.list {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: 290px;
+    overflow-x: scroll;
+    border: 1px solid #aaa;
+}
+#country_modal ul.list li {
+    padding: 6px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+#country_modal ul.list li:hover {
+    background-color: #f3f3f3;
+}
+#country_modal ul.list li:last-child {
+    border-bottom-style: none;
+}

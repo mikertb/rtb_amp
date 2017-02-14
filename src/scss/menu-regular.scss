@@ -1,0 +1,253 @@
+/* Imports */
+@import 'colors';
+
+/* Common */
+.menu-button {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    padding: 4px 7px;
+}
+.menu-button:hover {
+    border: 1px solid transparent;
+    background-color: rgba(0,0,0,0.5);
+}
+.menu-button .fa {vertical-align: middle;}
+
+/* Top Bar */
+nav.top *,
+.modal .header * {
+    color: #fff;
+    font-size: 18px;
+    text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
+}
+nav.top .left {
+    float: left;
+    line-height: 31px;
+}
+nav.top .right {float: right;}
+nav.top .menu-bar,
+.modal .header {
+    background: $gray-1-gradient;
+    padding: 8px;
+    overflow: auto;
+    border-bottom: 1px solid rgba(0,0,0,0.35);
+    text-transform: uppercase;
+}
+nav.top .menu-bar > * {vertical-align: baseline;}
+nav.top .menu-bar a.logo i {margin-right: 2px;}
+nav.top .menu-bar label {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    padding: 4px 7px;
+}
+nav.top .menu-bar label .fa {vertical-align: middle;}
+nav.top ul.menu-dropdown {
+    display: none;
+    margin: 0;
+    list-style-type: none;
+    padding-left: 0;
+    position: absolute;
+    width: 100%;
+    top: auto;
+    animation: fadeIn 500ms;
+    z-index: 2;
+}
+nav.top .menu-dropdown li {
+    background-color: $gray-1;
+    border-top: 1px solid rgba(150,150,150,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    text-transform: uppercase;
+}
+nav.top .menu-dropdown li a {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 9px 8px;
+    animation: fadeInLeft 300ms;
+}
+nav.top .menu-dropdown li:hover a {background-color: rgba(0,0,0,0.5);}
+nav.top .menu-dropdown li:hover a:before {
+    color: #fff;
+    text-shadow: none;
+    top: 0px;
+}
+nav.top .menu-dropdown li a:before {
+    display: inline-block;
+    font-family: FontAwesome;
+    content: "\f111";
+    vertical-align: center;
+    font-size: 10px;
+    margin-right: 5px;
+    color: rgba(0,0,0,0.8);
+    text-shadow: rgba(255,255,255,0.8) 0.5px 0.5px 0px;
+    position: relative;
+    top: -1px;
+}
+
+/* Menu Dropdown Click Effect */
+nav.top #menu_dropdown_toggle:checked ~ .menu-bar label {
+    border: 1px solid transparent;
+    background-color: rgba(0,0,0,0.5);
+}
+nav.top #menu_dropdown_toggle:checked ~ .menu-dropdown {display: block;}
+
+/* Modal Contents */
+.modal {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: $gray-2;
+    overflow-y: auto;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 200ms ease 200ms;
+}
+.modal .header {
+    background-color: $gray-1;
+    overflow: auto;
+    text-align: center;
+    position: relative;
+}
+.modal .header .title {
+    display: block;
+    width: 100%; height: 100%;
+    line-height: 47px;
+    position: absolute;
+    left: 0; top: 0;
+    text-align: center;
+    z-index: 0;
+}
+.modal .header * {color: #fff;}
+.modal .body {
+    width: 100%;
+    height: calc(100% - 48px);
+    padding-left: 12px;
+    padding-right: 12px;
+    vertical-align: top;
+    display: block;
+    overflow: auto;
+}
+.modal .left {
+    float: left;
+    position: relative;
+    z-index: 2;
+}
+.modal .right {
+    float: right;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tabs */
+.tabs { 
+    margin-top: 12px;
+    text-align: center;
+    position: relative;
+}
+.tabs input[type="radio"] {display: none;}
+.tabs input[type="radio"]:checked + label {background: $button-green;}
+.tabs input[type="radio"]:checked + label + .tab-content {display: block;}
+.tabs label {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+.tabs .tab-content {
+    width: 100%;
+    text-align: left;
+    display: none;
+    position: absolute;
+    top: 100%;
+    animation: fadeIn 500ms;
+}
+
+/* 
+ Content Specific Responsiveness 
+*/
+
+/* Products */
+#products img {
+    width: 100%;
+    height: auto;
+}
+
+/* Offices */
+#offices .body,
+#offices .body .grid-item {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#offices .body > h4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 8px;
+}
+#offices .body .grid-item {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+/* Inventory */
+#inventory .body,
+#_3rd_party_data .body {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#inventory .body .square-icons,
+#_3rd_party_data .body .square-icons {
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+    overflow: auto;
+}
+#inventory .body .square-icons .grid-item,
+#_3rd_party_data .body .square-icons .grid-item {
+    display: inline-block;
+    padding: 5px;
+}
+#inventory .body .square-icons .grid-item,
+#_3rd_party_data .body .square-icons .grid-item {width: 16.66%;}
+#inventory .body .square-icons .grid-item > a,
+#_3rd_party_data .body .square-icons .grid-item > a {
+    position: relative;
+    display: block;
+    padding-bottom: 100%;
+    background-color: rgba(255,255,255,.5);
+}
+#inventory .body .square-icons .grid-item img,
+#_3rd_party_data .body .square-icons .grid-item img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0; top: 0;
+}
+@media only screen and (max-width: 640px) {
+    #inventory .body .square-icons .grid-item,
+    #_3rd_party_data .body .square-icons .grid-item {width: 20%;}
+}
+@media only screen and (max-width: 512px) {
+    #inventory .body .square-icons .grid-item,
+    #_3rd_party_data .body .square-icons .grid-item {width: 25%;}
+}
+@media only screen and (max-width: 185px) {
+    #inventory .body .square-icons .grid-item,
+    #_3rd_party_data .body .square-icons .grid-item {width: 33.33%;}
+}
+#inventory .body h3,
+#inventory .body p,
+#_3rd_party_data .body h3,
+#_3rd_party_data .body p {
+    padding-left: 5px;
+    padding-right: 5px;
+}

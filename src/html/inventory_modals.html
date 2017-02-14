@@ -1,0 +1,136 @@
+<div id="search_modal" class="screen-overlay">
+    <div class="spanel overlay-content">
+        <form id="search_form" class="form">
+            <input type="hidden" name="sort_by" value="filtered_impressions" />
+            <input type="hidden" name="order_by" value="des" />
+            <input type="hidden" name="page" value="1" />
+            <input type="hidden" name="limit" value="25" />
+            <div class="spanel-head">
+                <span class="title">Search Inventory</span>
+            </div>
+            <div class="spanel-body">
+                <div class="field-entry">
+                    <input type="text" name="keyword" placeholder="Seller's name or ID" />
+                </div>
+                <div class="field-entry">
+                    <div class="filter-title">Country</div>
+                    <div class="filter-content">
+                        <ul id="filter_country">
+                            <li>
+                                <label>
+                                    <input type="radio" name="country" value="all" checked="true" />
+                                    &nbsp;Worldwide (All Countries)
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input id="filter_country_single" type="radio" name="country" value="" />
+                                    &nbsp;<span id="filter_country_choice" title="Click to change.">Select Country</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="device_block" class="field-entry">
+                    <div class="filter-title">Device Type</div>
+                    <div class="filter-content">
+                        <ul>
+                            <li>
+                                <label><input type="radio" name="device_type" value="0" checked="true" /> All</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="device_type" value="1" /> Desktop</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="device_type" value="2" /> Phone</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="device_type" value="3" /> Tablet</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="supply_block" class="field-entry">
+                    <div class="filter-title">Supply Type</div>
+                    <div class="filter-content">
+                        <ul>
+                            <li>
+                                <label><input type="radio" name="supply_type" value="0" checked="true" /> All</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="supply_type" value="1" /> Web</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="supply_type" value="2" /> Mobile Web</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="supply_type" value="3" /> Mobile App</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="spanel-footer buttons">
+                <button type="submit" role="submit" class="btn btn-white">Submit</button>
+                <button type="button" role="cancel" class="btn btn-white">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="country_modal" class="screen-overlay">
+    <div class="spanel overlay-content">
+        <div class="spanel-head">
+            <span class="title">Select a Country</span>
+        </div>
+        <div class="spanel-body">
+            <ul class="list">
+                <li data-code="AR">Argentina</li>
+                <li data-code="AU">Australia</li>
+                <li data-code="BR">Brazil</li>
+                <li data-code="CA">Canada</li>
+                <li data-code="CN">China</li>
+                <li data-code="DE">Germany</li>
+                <li data-code="ES">Spain</li>
+                <li data-code="FR">France</li>
+                <li data-code="GB">United Kingdom</li>
+                <li data-code="ID">Indonesia</li>
+                <li data-code="IN">India</li>
+                <li data-code="IT">Italy</li>
+                <li data-code="JP">Japan</li>
+                <li data-code="KR">South Korea</li>
+                <li data-code="MX">Mexico</li>
+                <li data-code="NL">Netherlands</li>
+                <li data-code="PH">Philippines</li>
+                <li data-code="PL">Poland</li>
+                <li data-code="RU">Russia</li>
+                <li data-code="TH">Thailand</li>
+                <li data-code="TR">Turkey</li>
+                <li data-code="TW">Taiwan</li>
+                <li data-code="UA">Ukraine</li>
+                <li data-code="US">United States</li>
+                <li data-code="VN">Vietnam</li>
+            </ul>
+        </div>
+        <div class="spanel-footer buttons">
+            <button role="cancel" type="button" class="btn btn-white">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+<div id="world_map_modal" class="screen-overlay">
+    <div class="width-constrainer">
+        <div class="box">
+            <div class="controls">
+                <i class="glyphicon scr-toggle max" title="Fullscreen"></i>
+                <i class="glyphicon glyphicon-remove" title="Close"></i>
+            </div>
+            <div class="map-title">Title</div>
+        </div>
+    </div>
+</div>
+<div id="loader" class="screen-overlay">
+    <div class="box">
+        <img src="img/spinner.gif" />&nbsp;LOADING
+    </div>
+</div>

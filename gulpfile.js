@@ -140,7 +140,29 @@ gulp.task('write_audio_ads_menu',function(){
     }
     fs.writeFileSync(settings.output_file,html);
 });
-
+gulp.task('write_3rdpartydata_menu',function(){
+    var settings = {
+        image_folder : 'img/menu/3rd_party/',
+        output_file : 'src/partials/html/menu_3rd_party_data.html'
+    }
+    var entries = fs.readdirSync('./dist/img/menu/3rd_party');
+    var html = "";
+    for(let i in entries){
+        var file = settings.image_folder+entries[i];
+        var url  = "#";
+        html += 
+            `<div class="grid-item">
+                <a target="_blank" href="${url}">
+                <amp-img src="${file}"
+                  width="128"
+                  height="128"
+                  layout="responsive"></amp-img>
+                </a>
+            </div>
+            `;
+    }
+    fs.writeFileSync(settings.output_file,html);
+});
 /* 
 * Parsing Tasks
 */

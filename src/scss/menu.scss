@@ -192,33 +192,42 @@ nav.top #menu_dropdown_toggle:checked ~ .menu-dropdown {display: block;}
     vertical-align: top;
 }
 
-/* Inventory */
-#inventory .body {
+/* Inventory & 3rd Party Data */
+#inventory .body,
+#_3rd_party_data .body {
     padding-left: 5px;
     padding-right: 5px;
 }
-#inventory .body .square-icons {
+#inventory .body .square-icons,
+#_3rd_party_data .body .square-icons {
     width: 100%;
     overflow: auto;
     text-align: center;
     overflow: auto;
 }
-#inventory .body .square-icons .grid-item {
+#inventory .body .square-icons .grid-item,
+#_3rd_party_data .body .square-icons .grid-item {
     display: inline-block;
     padding: 5px;
 }
-#inventory .body .square-icons .grid-item {width: 16.66%;}
+#inventory .body .square-icons .grid-item,
+#_3rd_party_data .body .square-icons .grid-item {width: 16.66%;}
 @media only screen and (max-width: 640px) {
-    #inventory .body .square-icons .grid-item {width: 20%;}
+    #inventory .body .square-icons .grid-item,
+    #_3rd_party_data .body .square-icons .grid-item {width: 20%;}
 }
 @media only screen and (max-width: 512px) {
-    #inventory .body .square-icons .grid-item {width: 25%;}
+    #inventory .body .square-icons .grid-item,
+    #_3rd_party_data .body .square-icons .grid-item {width: 25%;}
 }
 @media only screen and (max-width: 185px) {
-    #inventory .body .square-icons .grid-item {width: 33.33%;}
+    #inventory .body .square-icons .grid-item,
+    #_3rd_party_data .body .square-icons .grid-item {width: 33.33%;}
 }
 #inventory .body h3,
-#inventory .body p {
+#inventory .body p,
+#_3rd_party_data .body h3,
+#_3rd_party_data .body p {
     padding-left: 5px;
     padding-right: 5px;
 }
