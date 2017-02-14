@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="traffic-map.html">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="js/jvectormap-2.0.3/jvectormap.min.css">
+    <style>{{> css/styles-regular.min.css }}{{> css/traffic-map.min.css }}</style>
+    <title>Traffic Map</title>
+</head>
+<body>
+    {{> html/menu.html }}
+    <h2>Traffic Map</h2>
+    <div id="main">
+        <div id="world_map">
+            <div class="controls">
+                <i class="fa scr-toggle max" title="Fullscreen"></i>
+            </div>
+        </div>
+        <div id="table_link"><a>Click here to see full inventory.</a></div>
+    </div>
+    {{> html/footer.html }}
+    {{> html/menu_modals_regular.html }}
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jvectormap-2.0.3/jvectormap.min.js"></script>
+    <script src="js/jvectormap-2.0.3/world-mill-mod.js"></script>
+    <script>
+        ;
+        (function($) {
+            var main_div = $('#main');
+            var scrn_btn = $('#world_map .scr-toggle');
+            var data_url = "http://sandbox.lat.com.es/index.php/stat/json?seller=map_all";
+
+            function goFullScreen(id) {
+                var el = document.getElementById(id);
+                if (el.requestFullscreen) {
+                    el.requestFullscreen();
+                } else if (el.webkitRequestFullscreen) {
+                    el.webkitRequestFullscreen();
+                } else if (el.mozRequestFullScreen) {
+                    el.mozRequestFullScreen();
+                } else if (el.msRequestFullscreen) {
+                    el.msRequestFullscreen();
+                }
+            }
+
+            function exitFullScreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function toggleFS(e) {
+                if (main_div.hasClass('fullscreened')) {
+                    main_div.removeClass('fullscreened');
+                    $(this).removeClass("restore").addClass("max").attr("title", "Fullscreen");
+                    exitFullScreen();
+                } else {
+                    main_div.addClass('fullscreened');
+                    $(this).addClass("restore").removeClass("max").attr("title", "Exit fullscreen");
+                    goFullScreen('world_map');
+                }
+            }
+            scrn_btn.click(toggleFS);
+            $.getJSON(data_url, function(data) {
+                $('#world_map').vectorMap({
+                    map: 'world_mill',
+                    backgroundColor: '#f5f5f5',
+                    series: {
+                        regions: [{
+                            values: data.map,
+                            scale: ['#9bd62c', '#cc2129'],
+                            normalizeFunction: 'polynomial'
+                        }]
+                    },
+                    onRegionTipShow: function(e, el, code) {
+                        var link_text = "Click for full region ("+code+") inventory.";
+                        $('#table_link').css('display','block');
+                        $('#table_link a').html(link_text).attr('href','inventory.html?country='+code);
+                        var trows = '';
+                        for (var seller in data.label[code]) {
+                            var name = seller.charAt(0).toUpperCase() + seller.slice(1);
+                            trows += '<tr><td>' + name + '</td><td>&nbsp;=&nbsp;</td><td>' + parseInt(data.label[code][seller]).toLocaleString() + '</td></tr>';
+                        }
+                        var table = '<table style="margin:5px">' +
+                            '<thead><th colspan="3" style="text-align:left;padding-bottom:3px;font-size:15px">' + el.html() + '</th></thead>' +
+                            '<tbody>' + trows + '</tbody>' +
+                            '</table>';
+                        el.html(table);
+                    }
+                });
+            });
+        }(jQuery));
+    </script>
+</body>
+</html>

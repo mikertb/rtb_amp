@@ -1,0 +1,130 @@
+.fullscreened #world_map {
+    border: none;
+    border-radius: 0 !important;
+}
+
+#table_link {
+    width: 280px;
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    left: 50%; top: 15px;
+    margin-left: -140px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: black;
+    display: none;
+    z-index: 2147483647;
+}
+#table_link a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#world_map {
+    width: calc(100% - 20px);
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 56.25%;
+    position: relative;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#world_map .jvectormap-container {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    overflow: visible;
+}
+
+#world_map .jvectormap-zoomin,
+#world_map .jvectormap-zoomout {
+    padding: 7px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+
+#world_map .jvectormap-zoomin:hover,
+#world_map .jvectormap-zoomout:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgba(0, 0, 0, 0.8)
+}
+
+#world_map .jvectormap-zoomin {
+    top: auto;
+    bottom: 15px;
+    left: 42px;
+    margin-bottom: -5px;
+    margin-left: -5px;
+}
+
+#world_map .jvectormap-zoomout {
+    top: auto;
+    bottom: 15px;
+    left: 15px;
+    margin-bottom: -5px;
+    margin-left: -5px;
+}
+
+#world_map .controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    display: none;
+}
+
+#world_map .controls .fa {
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    border-radius: 4px;
+    font-family: 'FontAwesome';
+}
+
+#world_map .controls .fa * {
+    font-family: 'FontAwesome';
+}
+
+#world_map .controls .fa.max:before {
+    content: "\f065";
+}
+
+#world_map .controls .fa.restore:before {
+    content: "\f066";
+}
+
+#world_map .controls .fa:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#world_map:hover .jvectormap-zoomin,
+#world_map:hover .jvectormap-zoomout,
+#world_map:hover .map-title,
+#world_map:hover .controls {
+    display: inline-block;
+}
+
+.jvectormap-tip {
+    z-index: 2147483647;
+}
+
+.jvectormap-tip table {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+.jvectormap-tip table th {
+    font-size: 15px;
+}
