@@ -75,7 +75,7 @@
     <script src="js/FForm.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script>
-        (function() {
+        ;(function() {
             var formWrap = document.getElementById('fs-form-wrap');
             new FForm(formWrap, {
                 onReview: function() {
@@ -102,6 +102,56 @@
             });
         }(jQuery))
     </script>
+    
+    <!-- Tracking Pixels -->
+    <!-- AMS US Page View -->
+    <script type='text/javascript'>
+        var _pix = document.getElementById('_pix_id_a4c9002b-4968-26ab-6f27-9592b4c07b9c');
+        if (!_pix) {
+            var protocol = '//';
+            var a = Math.random() * 1000000000000000000;
+            _pix = document.createElement('img');
+            _pix.style.display = 'none';
+            _pix.setAttribute('src', protocol + 's.amazon-adsystem.com/iu3?d=forester-did&ex-fargs=%3Fid%3Da4c9002b-4968-26ab-6f27-9592b4c07b9c%26type%3D55%26m%3D1&ex-fch=416613&ex-src=rtb.cat&ex-hargs=v%3D1.0%3Bc%3D4491937840601%3Bp%3DA4C9002B-4968-26AB-6F27-9592B4C07B9C' + '&cb=' + a);
+            _pix.setAttribute('id', '_pix_id_a4c9002b-4968-26ab-6f27-9592b4c07b9c');
+            document.body.appendChild(_pix);
+        }
+    </script><noscript> <img height='1' width='1' border='0' alt='' src='https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fid%3Da4c9002b-4968-26ab-6f27-9592b4c07b9c%26type%3D55%26m%3D1&ex-fch=416613&ex-src=rtb.cat&ex-hargs=v%3D1.0%3Bc%3D4491937840601%3Bp%3DA4C9002B-4968-26AB-6F27-9592B4C07B9C' /></noscript>
+    <!-- Page View Event Pixel -->
+    <script>
+        fbq('track', 'ViewContent', {
+            value: 3.50,
+            currency: 'USD'
+        });
+    </script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-90309796-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Twitter universal website tag code -->
+    <script>
+        ! function(e, t, n, s, u, a) {
+            e.twq || (s = e.twq = function() {
+                    s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+                }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = '//static.ads-twitter.com/uwt.js',
+                a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a))
+        }(window, document, 'script');
+        // Insert Twitter Pixel ID and Standard Event data below
+        twq('init', 'nuzl2');
+        twq('track', 'PageView');
+    </script>
+    <!-- End Twitter universal website tag code -->
 </body>
 
 </html>
