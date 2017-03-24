@@ -1,6 +1,6 @@
 ;(function($){
     var config = {
-        url : "http://sandbox.lat.com.es/index.php/info/inventory",
+        url : "http://hooks.rtb.cat:8000/info/inventory",
         loading: false,
         last_data: null,
         sellers: [
@@ -11,7 +11,7 @@
             {id:280,link:"microsoft"}
         ]
     }
-    var data = {items:[],page:{current:1,total:0}};
+    var data = {countries:[],items:[],page:{current:1,total:0}};
     var obj = {
         $page_country_title: $('#selected_country_title'),
         $form: $('#search_form'),
@@ -42,23 +42,35 @@
         obj.$country_modal_options.on('click',setCountry);
         obj.$country_modal_close.on('click',function(){obj.$country_modal.removeClass('active');});
         obj.$th.on('click',sortColumn);
-        // Check for query string with specific country.
-        var country_query = location.search;
-        var country_match = country_query.match(/country=([A-Z]{2})/);
-        try {
-            var country_found = country_match[1];
-        } catch(e) {
-            var country_found = null;
-        }
-        if(country_found !== null) {
-            var country_name = $('#country_modal [data-code="'+country_found+'"]').text();
-            if(country_name.length > 2){
-                obj.$form.find('[name="country"]').prop('checked',false);
-                $('#filter_country_single').val(country_found).prop('checked',true);
-                $('#filter_country_choice').text(country_name);
+        $('#loader').css('display','block');
+        $.ajax({
+            method: "GET",
+            url: "http://rtb.cat/files/countries_jvector_map.json",
+            success: function(response){
+                var countries = eval(response);
+                for(var i=0;i<countries.length;i++){
+                    data.countries[countries[i].code] = countries[i].name;
+                }
+                putCountryList();
+                // Check for query string with specific country.
+                var country_query = location.search;
+                var country_match = country_query.match(/country=([A-Z]{2})/);
+                try {
+                    var country_found = country_match[1];
+                } catch(e) {
+                    var country_found = null;
+                }
+                if(country_found !== null) {
+                    var country_name = data.countries[country_found];
+                    if(country_name.length > 2){
+                        obj.$form.find('[name="country"]').prop('checked',false);
+                        $('#filter_country_single').val(country_found).prop('checked',true);
+                        $('#filter_country_choice').text(country_name);
+                    }
+                }
+                update();
             }
-        }
-        update();
+        });
     }
     function render(){
         // Loading status.
@@ -141,12 +153,11 @@
                 url: config.url,
                 data: new_data,
                 success: function(response){
-                    data = response;
+                    data.items = response.items;
+                    data.page = response.page;
                     config.loading = false;
                     config.last_data = new_data;
-                    setTimeout(function(){
-                        render();
-                    },500);
+                    render();
                 }
             });
         }
@@ -196,6 +207,14 @@
             current_page.val(Number(current_page.val())+1);
             update();
         }
+    }
+    function putCountryList(){
+        var html = "";
+        for(var code in data.countries){
+            html += '<li data-code="'+code+'">'+data.countries[code]+'</li>';
+        }
+        $('#country_modal .list').html(html);
+        $('#country_modal .list li').on('click',setCountry);
     }
     function getCountry(e){
         if(e.target.value == "all"){

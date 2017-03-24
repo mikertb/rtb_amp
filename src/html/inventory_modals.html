@@ -1,7 +1,7 @@
 <div id="search_modal" class="screen-overlay">
     <div class="spanel overlay-content">
         <form id="search_form" class="form">
-            <input type="hidden" name="sort_by" value="filtered_impressions" />
+            <input type="hidden" name="sort_by" value="filtered_imps" />
             <input type="hidden" name="order_by" value="des" />
             <input type="hidden" name="page" value="1" />
             <input type="hidden" name="limit" value="25" />
@@ -36,16 +36,16 @@
                     <div class="filter-content">
                         <ul>
                             <li>
-                                <label><input type="radio" name="device_type" value="0" checked="true" /> All</label>
+                                <label><input type="radio" name="device_type" value="any" checked="true" /> All</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="device_type" value="1" /> Desktop</label>
+                                <label><input type="radio" name="device_type" value="desktop" /> Desktop</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="device_type" value="2" /> Phone</label>
+                                <label><input type="radio" name="device_type" value="phone" /> Phone</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="device_type" value="3" /> Tablet</label>
+                                <label><input type="radio" name="device_type" value="tablet" /> Tablet</label>
                             </li>
                         </ul>
                     </div>
@@ -55,16 +55,16 @@
                     <div class="filter-content">
                         <ul>
                             <li>
-                                <label><input type="radio" name="supply_type" value="0" checked="true" /> All</label>
+                                <label><input type="radio" name="supply_type" value="any" checked="true" /> All</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="supply_type" value="1" /> Web</label>
+                                <label><input type="radio" name="supply_type" value="web" /> Web</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="supply_type" value="2" /> Mobile Web</label>
+                                <label><input type="radio" name="supply_type" value="mobile_web" /> Mobile Web</label>
                             </li>
                             <li>
-                                <label><input type="radio" name="supply_type" value="3" /> Mobile App</label>
+                                <label><input type="radio" name="supply_type" value="mobile_app" /> Mobile App</label>
                             </li>
                         </ul>
                     </div>
@@ -84,31 +84,7 @@
         </div>
         <div class="spanel-body">
             <ul class="list">
-                <li data-code="AR">Argentina</li>
-                <li data-code="AU">Australia</li>
-                <li data-code="BR">Brazil</li>
-                <li data-code="CA">Canada</li>
-                <li data-code="CN">China</li>
-                <li data-code="DE">Germany</li>
-                <li data-code="ES">Spain</li>
-                <li data-code="FR">France</li>
-                <li data-code="GB">United Kingdom</li>
-                <li data-code="ID">Indonesia</li>
-                <li data-code="IN">India</li>
-                <li data-code="IT">Italy</li>
-                <li data-code="JP">Japan</li>
-                <li data-code="KR">South Korea</li>
-                <li data-code="MX">Mexico</li>
-                <li data-code="NL">Netherlands</li>
-                <li data-code="PH">Philippines</li>
-                <li data-code="PL">Poland</li>
-                <li data-code="RU">Russia</li>
-                <li data-code="TH">Thailand</li>
-                <li data-code="TR">Turkey</li>
-                <li data-code="TW">Taiwan</li>
-                <li data-code="UA">Ukraine</li>
-                <li data-code="US">United States</li>
-                <li data-code="VN">Vietnam</li>
+                <!-- <li data-code="AR">Argentina</li> -->
             </ul>
         </div>
         <div class="spanel-footer buttons">
